@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import javax.sound.midi.SysexMessage;
-
 public class opg3_14{
     public static void main(String[] args) {
         
