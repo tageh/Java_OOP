@@ -14,7 +14,6 @@ public class Oblig1Oppgave1_237187{
         double x4 = input.nextDouble();
         double y4 = input.nextDouble();
 
-
         double a = (y1-y2);
         double b = -(x1 - x2);
         double c = (y3-y4);
@@ -28,7 +27,6 @@ public class Oblig1Oppgave1_237187{
         
         input.close();
     }
-
 }
 
 class LinearEquation {
