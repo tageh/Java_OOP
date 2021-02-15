@@ -31,4 +31,13 @@ public class Circle{
       + this.calculateArea();
   }
 
+  //Litt usikker paa denne, men fikser hvis den er feil
+  public boolean equals(Circle obj){
+    if(this.radius == obj.radius){
+        return true;
+    }
+    return false;
+
+  }
+
 }

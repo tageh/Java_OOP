@@ -20,4 +20,11 @@ class Sphere extends Circle {
           + this.calculateArea()
           + "\nog volum = " + calculateVolume();
       }
+
+      public boolean equals(Sphere obj){
+        if(super(radius) == obj.getRadius){
+            return true;
+        }
+        return false;
+      }
 }
