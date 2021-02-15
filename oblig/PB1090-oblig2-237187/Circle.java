@@ -1,0 +1,34 @@
+//superclass...
+public class Circle{
+  private double radius;
+
+  Circle(){
+    //Det samme som å kalle på Circle(1.0)
+    this(1.0);
+  }
+  
+  Circle(double radius){
+    this.radius = radius;
+  }
+
+  public void setRadius(double radius){
+      this.radius = radius;
+  }
+
+  public double calculateArea(){
+    return Math.pow(this.radius, 2)*Math.PI;
+  }
+
+  public double getRadius(){
+    return this.radius;
+  }
+
+  
+  public String toString(){
+    return "Sirkel med radius = " 
+      + this.radius 
+      + "\nhar areal = " 
+      + this.calculateArea();
+  }
+
+}
