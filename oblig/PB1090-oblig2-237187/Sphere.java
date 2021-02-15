@@ -1,15 +1,10 @@
 class Sphere extends Circle {
 
-      //Vi trenger ikke å lage kode for konstruktør i denne klassen, pga. vi får radius fra Circle-klassen når når sirkel-objekt blir opprettet. 
-
-
       public double calculateArea(){
-        //Henter radius fra superklassen Circle her:
         return 4*Math.PI*Math.pow(super.getRadius(), 2);
       }
 
       public double calculateVolume(){
-        //Henter radius fra superklassen Circle her:
         return 4*Math.PI*Math.pow(super.getRadius(), 3) / 3.0;
       }
 
@@ -21,10 +16,4 @@ class Sphere extends Circle {
           + "\nog volum = " + calculateVolume();
       }
 
-      public boolean equals(Sphere obj){
-        if(super(radius) == obj.getRadius){
-            return true;
-        }
-        return false;
-      }
 }

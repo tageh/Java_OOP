@@ -1,6 +1,10 @@
 public class ComparableSphere extends Circle{
-   ComparableSphere(){
-   }
 
+    public int compareTo(ComparableSphere obj){
+       return 2; 
+    }
 
+    public String toString(){
+       return "true"; 
+    }
 }
