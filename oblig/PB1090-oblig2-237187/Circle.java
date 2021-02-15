@@ -1,9 +1,7 @@
-//superclass...
 public class Circle{
   private double radius;
 
   Circle(){
-    //Det samme som å kalle på Circle(1.0)
     this(1.0);
   }
   
@@ -39,5 +37,6 @@ public class Circle{
     return false;
 
   }
+  
 
 }
