@@ -4,17 +4,19 @@ public class Oblig2Oppgave1 {
 
     public static void main(String[] args){
 
-        ComparableSphere[] kuler = {
+        ComparableSphere[] shperes = {
             new ComparableSphere(2),
             new ComparableSphere(5),
             new ComparableSphere(3),
-            new ComparableSphere(7)
+            new ComparableSphere(7),
+            new ComparableSphere(10),
+            new ComparableSphere(1)
         };
         
-        Arrays.sort(kuler, Collections.reverseOrder());
+        Arrays.sort(shperes, Collections.reverseOrder());
 
-         for(int i = 0; i < kuler.length; i++){
-            System.out.println(kuler[i].toString()); 
+        for(ComparableSphere shpere: shperes){
+            System.out.println(shpere.toString());
         } 
     }
 }

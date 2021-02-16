@@ -6,7 +6,7 @@ public class ComparableSphere extends Sphere implements Comparable<ComparableSph
 
     @Override
     public int compareTo(ComparableSphere obj){
-        if(calculateVolume() > obj.calculateVolume()){
+        if(super.calculateVolume() > obj.calculateVolume()){
             return 1; //1 is True
         }else if(calculateVolume() < obj.calculateVolume()){
             return -1;
