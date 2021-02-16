@@ -16,6 +16,6 @@ public class ComparableSphere extends Sphere implements Comparable<ComparableSph
 
     @Override
     public String toString(){
-       return "Volum: "+ calculateVolume(); 
+       return "Radius: "+ Math.floor(getRadius()*100)/100 +" Volum: "+Math.floor(calculateVolume()*100)/100; 
     }
 }
