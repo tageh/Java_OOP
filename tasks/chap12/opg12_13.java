@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-class opg13_12{
+class opg12_13{
     public static void main(String[] args) throws Exception{
 
         if(args.length != 1){

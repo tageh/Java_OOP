@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-class opg12_13{
+class opg12_14{
     public static void main(String[] args) throws Exception {
         if(args.length != 1){
             System.out.println("Give a file");
@@ -35,6 +35,7 @@ class opg12_13{
                     System.out.println("Name match on line: " + lines);
                     return lines;
                 }else{
+                    System.out.println("Name not found");
                     return -1; 
                 } 
             }
