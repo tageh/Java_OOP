@@ -27,17 +27,17 @@ class opg12_14{
     public static int readInFile(String line, File file) throws Exception{
         int lines = 0;
         String name;
-        try(Scanner inp = new Scanner(file)){
+        try(Scanner inp = new Scanner(file);){
             while(inp.hasNext()){
                 lines++;
                 name = inp.nextLine(); 
                 if(line.equals(name)){
                     System.out.println("Name match on line: " + lines);
                     return lines;
-                }else{
-                    System.out.println("Name not found");
-                    return -1; 
-                } 
+                }//else{
+                   // System.out.println("Name not found");
+                    //return -1; 
+                //} 
             }
         }
         return 1;
