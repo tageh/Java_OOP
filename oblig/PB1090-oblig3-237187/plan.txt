@@ -1,0 +1,5 @@
+1. lese inn fil og legge den i et 2dm array bufferdInputStream med fileInptStream
+2. finne maks sum i radene
+3. skrive ut
+
+rask plan, kan komme mere
