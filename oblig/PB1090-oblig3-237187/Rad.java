@@ -1,12 +1,16 @@
 class Rad{
-    private int[] verdier;
+    int[] verdier = new int[8];
 
     Rad(int[] verdier){
         this.verdier = verdier;
+        
     }
 
     int beregnSum(){
-        
-        return 1;
+        int sum = 0;
+        for(int i = 0;i<verdier.length; i++){
+            sum += verdier[i];
+        }
+        return sum;
     }
 }

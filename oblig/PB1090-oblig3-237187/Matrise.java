@@ -4,51 +4,61 @@ import java.io.*;
 class Matrise{
     private int radNr;
     private int maskSum;
-    private Rad[] rader;
+    private Rad[] rader = new Rad[8];
     private String filnavn;
     
     Matrise(String filnavn){
         this.filnavn = filnavn;
-        rader = new Rad[8];
     }
 
-    int[] temp = new int[65];
 
     void fyllRaderFraFil() throws Exception, IOException{
-        File fil = new File(filnavn);
-        radNr = 0;
+        int teller = 0;
+        String linje;
         
-        if(!fil.exists()){
-            System.out.println("Filen finnes ikke");
-            System.exit(1);
-        }
-
         try(
-            Scanner input = new Scanner(fil);
-        ){
-            while(input.hasNext()){
-                radNr++;
-                for(int i = 1; i < temp.length; i++){
-                    temp[i] = input.nextInt();
-                    int[] lokal_temp = new int[8]; 
+                BufferedReader leser = new BufferedReader(new FileReader(filnavn));
+            ){
+            while((linje = leser.readLine()) != null){
+                String[] deler = linje.split(" ");
+                int[] temp = new int[deler.length];
+                for(int i = 0; i < deler.length; i++){
+                    temp[i] = Integer.parseInt(deler[i]);
                 }
-                
+                rader[teller] = new Rad(temp);
+                teller++;    
             }
         }
     } 
     
     
-    int finnMaksSumAvRader(){
-        
-        return 1;
+    void finnMaksSumAvRader(){
+        int sum = 0;
+        for(int i = 0; i<rader.length; i++){
+           if(rader[i].beregnSum() > sum){
+               sum = rader[i].beregnSum();
+               radNr = i;
+           }
+        }
+        maskSum = sum;
     }
 
     void skrivUtMatrise(){
-        for(int i = 1; i < temp.length; i++){
-            System.out.print(temp[i]+ " ");
-            if(i % 8 == 0){
-                System.out.print("\n");
+        for(int i = 0; i <rader.length; i++){
+            System.out.print(i+ " ");
+            for(int j = 0; j<rader[i].verdier.length; j++){
+                System.out.print(rader[j].verdier[i] + " ");
             }
-        } 
+            System.out.println();
+        }
+    } 
+
+    public int getRadNr(){
+        return radNr;
     }
+
+    public int getMakSum(){
+        return maskSum;
+    }
+    
 }
