@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-class Matrise{
+public class Matrise{
     private int radNr;
     private int maskSum;
     private Rad[] rader = new Rad[8];
@@ -11,28 +11,36 @@ class Matrise{
         this.filnavn = filnavn;
     }
 
-
-    void fyllRaderFraFil() throws Exception, IOException{
+    /**
+     *Denne metoden fyller objekter av typen Rad med hver sin rad av matrisen
+     *den fyller et array med alle tallene i filen og legger det i temp array som da legger de i en temp array
+     *slik at den kan bli sent inn til Rad objektet
+     */
+    public void fyllRaderFraFil() throws Exception, IOException{
+        File fil = new File(filnavn);
         int teller = 0;
-        String linje;
-        
+        int[] tall = new int[8];
+
         try(
-                BufferedReader leser = new BufferedReader(new FileReader(filnavn));
+                Scanner filData = new Scanner(fil);
             ){
-            while((linje = leser.readLine()) != null){
-                String[] deler = linje.split(" ");
-                int[] temp = new int[deler.length];
-                for(int i = 0; i < deler.length; i++){
-                    temp[i] = Integer.parseInt(deler[i]);
+            while(filData.hasNext()){
+                int[] temp = new int[tall.length];
+                for(int i = 0; i < tall.length; i++){
+                    tall[i] = filData.nextInt();
+                    temp[i] = tall[i];
                 }
-                rader[teller] = new Rad(temp);
-                teller++;    
+                rader[teller++] = new Rad(temp);
             }
         }
     } 
     
-    
-    void finnMaksSumAvRader(){
+    /**
+     *Denne metoden finner ut hvilken rad som har den storste summen,
+     *den bruker beregnSum metoden fra Rad klassen til sjekke om hvilken som er storst. 
+     *
+     */
+    public void finnMaksSumAvRader(){
         int sum = 0;
         for(int i = 0; i<rader.length; i++){
            if(rader[i].beregnSum() > sum){
@@ -43,11 +51,14 @@ class Matrise{
         maskSum = sum;
     }
 
-    void skrivUtMatrise(){
+    /**
+     *Denne metoden skriver ut matrisen i sin helhet.
+     *Den sjekker lengden paa arrayen de ligger i og bruker en nested loop for aa skrive ut
+     */
+    public void skrivUtMatrise(){
         for(int i = 0; i <rader.length; i++){
-            System.out.print(i+ " ");
             for(int j = 0; j<rader[i].verdier.length; j++){
-                System.out.print(rader[j].verdier[i] + " ");
+                System.out.print(rader[i].verdier[j] + " ");
             }
             System.out.println();
         }
