@@ -67,7 +67,7 @@ public class Matrise{
 
 	void sjekkFil(File fil){
 		if(!fil.exists()){
-            System.out.println("Denne filen eksisterer ikke, bruk en fil som eksisterer");
+            System.out.println("Filen: \""+ fil.toString() + "\" eksisterer ikke");
 		    System.exit(2);
 		}
 	}
