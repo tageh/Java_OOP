@@ -18,6 +18,7 @@ public class Matrise{
      */
     public void fyllRaderFraFil() throws Exception, IOException{
         File fil = new File(filnavn);
+        sjekkFil(fil);
         int teller = 0;
         int[] tall = new int[8];
 
@@ -63,6 +64,14 @@ public class Matrise{
             System.out.println();
         }
     } 
+
+	void sjekkFil(File fil){
+		if(!fil.exists()){
+            System.out.println("Denne filen eksisterer ikke, bruk en fil som eksisterer");
+		    System.exit(2);
+		}
+	}
+
 
     public int getRadNr(){
         return radNr;
