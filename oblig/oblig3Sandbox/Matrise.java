@@ -4,7 +4,7 @@ import java.io.*;
 public class Matrise{
     private int radNr;
     private int maskSum;
-    private Rad[] rader = new Rad[8];
+    private Rad[] rader = new Rad[8]; 
     private String filnavn;
     
     Matrise(String filnavn){
@@ -17,24 +17,24 @@ public class Matrise{
      *slik at den kan bli sent inn til Rad objektet
      */
     public void fyllRaderFraFil() throws Exception, IOException{
-        File fil = new File(filnavn);
-        sjekkFil(fil);
-        int teller = 0;
-        int[] tall = new int[8];
-
+        String line;
+        int count = 0;
+        sjekkFil();
         try(
-                Scanner filData = new Scanner(fil);
+                BufferedReader reader = new BufferedReader( new FileReader(filnavn));
             ){
-            while(filData.hasNext()){
-                int[] temp = new int[tall.length];
-                for(int i = 0; i < tall.length; i++){
-                    tall[i] = filData.nextInt();
-                    temp[i] = tall[i];
+            while((line = reader.readLine()) != null){
+                String[] parts = line.split(" ");
+                int[] temp = new int[parts.length];
+                
+                for(int i = 0; i<parts.length; i++){
+                    temp[i] = Integer.parseInt(parts[i]);
                 }
-                rader[teller++] = new Rad(temp);
+                rader[count++] = new Rad(temp);
             }
         }
-    } 
+    }
+     
     
     /**
      *Denne metoden finner ut hvilken rad som har den storste summen,
@@ -65,7 +65,8 @@ public class Matrise{
         }
     } 
 
-	void sjekkFil(File fil){
+	void sjekkFil(){
+        File fil = new File(this.filnavn);
 		if(!fil.exists()){
             System.out.println("Filen: \""+ fil.toString() + "\" eksisterer ikke");
 		    System.exit(2);
