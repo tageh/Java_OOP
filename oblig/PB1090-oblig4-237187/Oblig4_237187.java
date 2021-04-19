@@ -1,8 +1,12 @@
+import java.util.*;
+
 class Oblig4_237187 {
 
     public static void main(String[] args){
 
         int radLengde = 8000;
+        
+        Scanner inp = new Scanner(System.in);       
 
         System.out.println("Antall datapunker totalt: " + radLengde +"*"+radLengde + " = "+ radLengde*radLengde);
         //tid_start:
@@ -31,7 +35,8 @@ class Oblig4_237187 {
         //Parallel del:
         //Start her for å komme i gang med oblig4:
         System.out.println("\nOblig4 start");
-        int traader = 8;
+        System.out.println("Hvor mange traader vil du bruke?");
+        int traader = inp.nextInt();
 
         ArbeiderTrad[] arbeider = new ArbeiderTrad[traader]; 
 		Thread[] traad = new Thread[traader];
@@ -43,7 +48,7 @@ class Oblig4_237187 {
       	for (int indeks = 0; indeks < traader; indeks++) { 
 			int start = lokalRadLengde * indeks;
             int stop = (lokalRadLengde * (indeks +1) -1); 
-            arbeider[indeks] = new ArbeiderTrad(indeks, matrise, start, stop);
+            arbeider[indeks] = new ArbeiderTrad(matrise, start, stop);
             traad[indeks] = new Thread(arbeider[indeks]); 
 		}
 

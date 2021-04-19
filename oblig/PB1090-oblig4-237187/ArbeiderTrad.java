@@ -1,14 +1,11 @@
 class ArbeiderTrad implements Runnable{
-    int antall;
     int start;
     int stop;
     int maksSumRad;
     Matrise matrise;
-    Rad[] lokaleRader;
     long totalTidPralell;
 
-    ArbeiderTrad(int antall, Matrise matrise, int start, int stop){
-       this.antall = antall; 
+    ArbeiderTrad(Matrise matrise, int start, int stop){
        this.matrise = matrise;
        this.start = start;
        this.stop = stop;
