@@ -78,7 +78,6 @@ class Oblig4_237187 {
 
     }
 
-
     public static void testResultatSekvensiellParallel(int sekvensieltResultat, int paralleltResultat){
         if(sekvensieltResultat==paralleltResultat){
             System.out.println("Test OK");
@@ -87,7 +86,6 @@ class Oblig4_237187 {
             System.out.println("Sekvensielt resultat er ikke det samme som parallelt resultat...");
         }
     }
-
 
     public static int finnBesteSumFraAlleTaader(int[] raderMaksSum){
 
@@ -98,11 +96,6 @@ class Oblig4_237187 {
                 sum = raderMaksSum[indeks];                
             }        
         }
-
         return sum;
     }
-
 }
-
-
-
